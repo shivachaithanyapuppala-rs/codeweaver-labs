@@ -70,9 +70,9 @@ const learningPaths = [
 
 export const LearningPaths = () => {
   return (
-    <section id="courses" className="py-20 bg-gradient-card">
+    <section id="courses" className="py-20 bg-gradient-card animate-on-scroll">
       <div className="container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl mb-6">
             Choose Your
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
@@ -85,17 +85,18 @@ export const LearningPaths = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 animate-slide-up">
           {learningPaths.map((path, index) => (
             <Card 
               key={index} 
-              className="group relative overflow-hidden bg-gradient-card border-0 shadow-card hover:shadow-elegant transition-all duration-300"
+              className="group relative overflow-hidden bg-gradient-card border-0 shadow-card hover:shadow-elegant transition-all duration-500 hover:scale-105 animate-on-scroll"
+              style={{ animationDelay: `${index * 200}ms` }}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${path.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
               
               <CardHeader className="relative">
                 <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-lg bg-background shadow-sm ${path.color}`}>
+                  <div className={`p-3 rounded-lg bg-background shadow-sm ${path.color} group-hover:animate-float`}>
                     <path.icon className="h-6 w-6" />
                   </div>
                   <Badge variant="outline" className="text-xs">
@@ -103,7 +104,7 @@ export const LearningPaths = () => {
                   </Badge>
                 </div>
                 
-                <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors">
+                <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
                   {path.title}
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
@@ -148,11 +149,11 @@ export const LearningPaths = () => {
                 </div>
 
                 <Button 
-                  className="w-full bg-gradient-primary hover:opacity-90 shadow-elegant group"
+                  className="w-full bg-gradient-primary hover:opacity-90 shadow-elegant group hover-scale animate-pulse-glow"
                   size="lg"
                 >
                   Start Learning
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </CardContent>
             </Card>
